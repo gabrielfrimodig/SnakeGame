@@ -76,6 +76,10 @@ public class Snake implements Commons{
         return (head.x == appleX && head.y == appleY);
     }
 
+    public boolean occupiedLocation(int appleX, int appleY) {
+        return body.contains(new Point(appleX, appleY));
+    }
+
     /*
         Cut the snake in half
      */
@@ -112,4 +116,6 @@ public class Snake implements Commons{
             left = false;
         }
     }
+
+
 }

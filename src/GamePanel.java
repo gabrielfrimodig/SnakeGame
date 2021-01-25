@@ -1,4 +1,3 @@
-import javax.management.DescriptorAccess;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -42,6 +41,9 @@ public class GamePanel extends JPanel implements ActionListener, Commons{
         if(snake.eaten(apple.getX(), apple.getY())){
             snake.addPart();
             apple.newLocation();
+            while(snake.occupiedLocation(apple.getX(), apple.getY())){
+                apple.newLocation();
+            }
         }
 
         if(snake.outsideBoarder()){
